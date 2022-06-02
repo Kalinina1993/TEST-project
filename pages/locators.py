@@ -15,3 +15,13 @@ class LoginPageLocators:
     REGISTER_PSW_FIELD = (By.NAME, "registration-password1")
     REGISTER_PSW_CONFIRM_FIELD = (By.NAME, "registration-password2")
     REGISTER_SUBMIT_BUTTON = (By.CSS_SELECTOR, "#register_form > button")
+
+
+class ProductPageLocators:
+    ADD_IN_CART_BUTTON = (By.CSS_SELECTOR, "#add_to_basket_form > button")
+    PRODUCT_PRICE = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color")
+    PRODUCT_PRICE_IN_CART = (By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > "
+                                              "p:nth-child(1)")
+    ADDING_MESSAGE_CONFIRM = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
+    NAME_OF_PRODUCT = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > h1")
+

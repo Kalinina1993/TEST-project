@@ -4,7 +4,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 s = Service("/home/natasha/PycharmProjects/Stepik_Python/Automation_testing/TEST-project/chromedriver")
-s2 = Service("/home/natasha/PycharmProjects/Stepik_Python/Automation_testing/TEST-project/chromedriver")
 
 
 def pytest_addoption(parser):
