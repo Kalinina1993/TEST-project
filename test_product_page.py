@@ -1,5 +1,6 @@
 from pages.product_page import ProductPage
-from config import product_page_url, page_without_capcha_url, for_change_page_url
+from config import product_page_url, page_without_capcha_url, for_change_page_url, basket_page_url
+from pages.basket_page import BasketPage
 import pytest
 import time
 
@@ -68,4 +69,11 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.open()
     page.should_be_login_link()
 
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    page = ProductPage(browser, product_page_url)
+    page.open()
+    page.go_to_basket_page()
+    basket = BasketPage(browser, basket_page_url)
+    basket.should_be_empty_basket()
 

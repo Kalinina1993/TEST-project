@@ -4,7 +4,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators
+from .locators import BasePageLocators, BasketPageLocators
 
 
 class BasePage:
@@ -60,4 +60,8 @@ class BasePage:
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasketPageLocators.BASKET_PAGE_BUTTON)
+        link.click()
 
