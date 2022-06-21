@@ -3,3 +3,4 @@ product_page_url = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-wo
 page_without_capcha_url = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
 for_change_page_url = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 basket_page_url = "http://selenium1py.pythonanywhere.com/ru/basket/"
+login_and_registration_page_url = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"

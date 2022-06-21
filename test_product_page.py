@@ -1,6 +1,8 @@
 from pages.product_page import ProductPage
-from config import product_page_url, page_without_capcha_url, for_change_page_url, basket_page_url
+from config import product_page_url, page_without_capcha_url, for_change_page_url, basket_page_url, \
+    login_and_registration_page_url
 from pages.basket_page import BasketPage
+from pages.login_page import LoginPage
 import pytest
 import time
 
@@ -77,3 +79,26 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket = BasketPage(browser, basket_page_url)
     basket.should_be_empty_basket()
 
+
+class TestUserAddToBasketFromProductPage:
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        self.page = LoginPage(browser, login_and_registration_page_url)
+        self.page.open()
+        # self.page.register_new_user("www.hello@mail.ru", "gssleoeflIhLhghlskb479", "gssleoeflIhLhghlskb479")
+        # self.page.should_be_authorized_user()
+        self.page.login("www.hello@mail.ru", "gssleoeflIhLhghlskb479")
+
+    def test_user_cant_see_success_message(self, browser):
+        page = ProductPage(browser, page_without_capcha_url)
+        page.open()
+        page.success_message_should_disappear()
+
+    def test_user_can_add_product_to_basket(self, browser):
+        page = ProductPage(browser, product_page_url)
+        page.open()
+        page.add_product_in_cart()
+        page.solve_quiz_and_get_code()
+        time.sleep(3)
+        page.product_in_cart()
+        page.price_of_cart()

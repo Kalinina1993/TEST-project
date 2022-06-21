@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class LoginPageLocators:
@@ -22,8 +23,8 @@ class ProductPageLocators:
     ADD_IN_CART_BUTTON = (By.CSS_SELECTOR, "#add_to_basket_form > button")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color")
     PRODUCT_PRICE_IN_CART = (
-    By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > "
-                     "p:nth-child(1) > strong")
+        By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > "
+                         "p:nth-child(1) > strong")
     ADDING_MESSAGE_CONFIRM = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
     NAME_OF_PRODUCT = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > h1")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(1) .alertinner")
@@ -34,3 +35,15 @@ class BasketPageLocators:
                                            "hidden-xs > span > a")
     TEXT_EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner > p")
 
+
+class LoginFormPage:
+    EMAIL_FIELD = (By.NAME, "login-username")
+    PSW_FIELD = (By.NAME, "login-password")
+    LOGIN_BUTTON = (By.CSS_SELECTOR, "#login_form > button")
+
+
+class RegistrationFormPage:
+    EMAIL_FIELD = (By.NAME, "registration-email")
+    PSW_FIELD = (By.NAME, "registration-password1")
+    PSW_CONFIRM_FIELD = (By.NAME, "registration-password2")
+    REGISTER_BUTTON = (By.CSS_SELECTOR, "#register_form > button")
