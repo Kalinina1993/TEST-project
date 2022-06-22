@@ -7,6 +7,7 @@ import pytest
 import time
 
 
+@pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser):
     page = ProductPage(browser, product_page_url)
     page.open()
@@ -85,9 +86,9 @@ class TestUserAddToBasketFromProductPage:
     def setup(self, browser):
         self.page = LoginPage(browser, login_and_registration_page_url)
         self.page.open()
-        # self.page.register_new_user("www.hello@mail.ru", "gssleoeflIhLhghlskb479", "gssleoeflIhLhghlskb479")
-        # self.page.should_be_authorized_user()
-        self.page.login("www.hello@mail.ru", "gssleoeflIhLhghlskb479")
+        mail = str(time.time()) + "@fakemail.org"
+        self.page.register_new_user(mail, "gssleoeflIhLhghlskb479", "gssleoeflIhLhghlskb479")
+        self.page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
         page = ProductPage(browser, page_without_capcha_url)
